@@ -6,7 +6,7 @@ GitHub
 # Sobre o Projeto
 &nbsp; &nbsp; &nbsp; O objetivo principal deste workshop é implementar um sistema de gerenciamento de pedidos, produtos, usuários e categorias, utilizando as tecnologias Spring Boot 3 e JPA para persistência de dados.
 
-# Durante o desenvolvimento, são abordados conceitos como:
+# Durante o desenvolvimento, são abordados conceitos como
 
 * Modelagem de entidades e relacionamentos
 
