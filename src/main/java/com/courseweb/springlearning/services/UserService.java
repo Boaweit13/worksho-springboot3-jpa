@@ -15,6 +15,8 @@ import com.courseweb.springlearning.repositories.UserRepository;
 import com.courseweb.springlearning.resources.exceptions.DatabaseException;
 import com.courseweb.springlearning.services.exceptions.ResourceNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service /* Pode-se definir como Repository ou component, dependo da função (Para integração com o spring*/
 public class UserService {
 
@@ -46,9 +48,13 @@ public class UserService {
 	}
 	
 	public User update(Long id, User obj) {
-		User entity = repository.getReferenceById(id);
-		updateData(entity, obj);
-		return repository.save(entity);
+		try {
+			User entity = repository.getReferenceById(id);
+			updateData(entity, obj);
+			return repository.save(entity);
+		} catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException(id);
+		}
 	}
 
 	//Não atualiza o id, nem a senha
